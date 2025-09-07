@@ -50,12 +50,9 @@ const mobileMenuOpen = ref(false)
                 <DialogPanel
                     class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
                     <div class="flex items-center justify-between">
-                        <a href="#" class="-m-1.5 p-1.5">
+                        <p href="#" class="-m-1.5 p-1.5">
                             <span class="sr-only">Certicode</span>
-                            <img class="h-8 w-auto"
-                                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                                alt="" />
-                        </a>
+                        </p>
                         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-200"
                             @click="mobileMenuOpen = false">
                             <span class="sr-only">Close menu</span>

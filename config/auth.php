@@ -6,8 +6,7 @@ return [
     |--------------------------------------------------------------------------
     | Authentication Defaults
     |--------------------------------------------------------------------------
-    |
-    | This option defines the default authentication "guard" and password
+php artisan jwt:secret
     | reset "broker" for your application. You may change these values
     | as required, but they're a perfect start for most applications.
     |
@@ -36,10 +35,15 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
+        'api' => [
+            'driver' => 'jwt',
             'provider' => 'users',
+            'hash' => false, // TODO: MAKE THIS HASH AFTER TESTING
         ],
+        /* 'web' => [ */
+        /*     'driver' => 'session', */
+        /*     'provider' => 'users', */
+        /* ], */
     ],
 
     /*
