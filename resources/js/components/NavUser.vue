@@ -5,8 +5,10 @@ import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from '@/c
 import { usePage } from '@inertiajs/vue3';
 import { ChevronsUpDown } from 'lucide-vue-next';
 import UserMenuContent from './UserMenuContent.vue';
+import { User } from '@/types';
 
-const page = usePage();
+// added this for sanity check when using auth key since lsp flags it as unknown
+const page = usePage<{ auth: {user: User}}>();
 const user = page.props.auth.user;
 const { isMobile, state } = useSidebar();
 </script>

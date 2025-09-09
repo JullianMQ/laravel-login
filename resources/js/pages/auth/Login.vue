@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import AuthenticatedSessionController from '@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController';
+// INFO: Not sure if this will be useful in the future, since auth is baked into the API
+// import AuthenticatedSessionController from '@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController';
 import InputError from '@/components/InputError.vue';
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
@@ -7,8 +8,6 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthBase from '@/layouts/AuthLayout.vue';
-import { register } from '@/routes';
-import { request } from '@/routes/password';
 import { Form, Head } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
@@ -18,6 +17,7 @@ defineProps<{
 }>();
 </script>
 
+// TODO: CHANGE THE FORMS TO WORK FOR THE API INSTEAD OF THE AUTH BY LARAVEL
 <template>
     <AuthBase title="Log in to your account" description="Enter your email and password below to log in">
         <Head title="Log in" />
@@ -26,8 +26,7 @@ defineProps<{
             {{ status }}
         </div>
 
-        <Form
-            v-bind="AuthenticatedSessionController.store.form()"
+        <Form action="/api/auth/login" method="post"
             :reset-on-success="['password']"
             v-slot="{ errors, processing }"
             class="flex flex-col gap-6"
@@ -51,7 +50,6 @@ defineProps<{
                 <div class="grid gap-2">
                     <div class="flex items-center justify-between">
                         <Label for="password">Password</Label>
-                        <TextLink v-if="canResetPassword" :href="request()" class="text-sm" :tabindex="5"> Forgot password? </TextLink>
                     </div>
                     <Input
                         id="password"
@@ -80,7 +78,7 @@ defineProps<{
 
             <div class="text-center text-sm text-muted-foreground">
                 Don't have an account?
-                <TextLink :href="register()" :tabindex="5">Sign up</TextLink>
+                <TextLink href="register">Sign up</TextLink>
             </div>
         </Form>
     </AuthBase>

@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
-import { login, register } from '@/routes'
 import { Link } from '@inertiajs/vue3'
 
 const navigation = [
@@ -41,7 +40,7 @@ const mobileMenuOpen = ref(false)
                         class="text-sm/6 font-semibold text-white">{{ item.name }}</a>
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link :href="login()" class="text-sm/6 font-semibold text-white">Log in <span
+                    <Link href="/login" class="text-sm/6 font-semibold text-white">Log in <span
                             aria-hidden="true">&rarr;</span></Link>
                 </div>
             </nav>
@@ -67,10 +66,8 @@ const mobileMenuOpen = ref(false)
                                         item.name }}</a>
                             </div>
                             <div class="py-6">
-                                <Link
-                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
-                                    :href="login()">
-                                Log in
+                                <Link href="/login" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5" >
+                                    Log in
                                 </Link>
                             </div>
                         </div>
@@ -93,11 +90,10 @@ const mobileMenuOpen = ref(false)
 automate sending to attendees, and ensure a secure,
 reliable, and hassle-free experience.</p>
                     <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <Link :href="login()"
-                            class="rounded-md bg-amber-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Get
+                        <Link href="/login" class="rounded-md bg-amber-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Get
                             started</Link>
                         <a href="#" class="text-sm/6 font-semibold text-white">Learn more <span
-                                aria-hidden="true">→</span></a>
+                            aria-hidden="true">→</span></a>
                     </div>
                 </div>
             </div>

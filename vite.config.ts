@@ -18,10 +18,15 @@ export default defineConfig({
         vue({
             template: {
                 transformAssetUrls: {
-                    base: null,
+                    base: '/public/',
                     includeAbsolute: false,
                 },
             },
         }),
     ],
+    server: {
+        // allowedHosts: ["test-app-laravel.tmc-innovations.com"],
+        allowedHosts: ["*"], // allow everyone for now
+        cors: true
+    }
 });

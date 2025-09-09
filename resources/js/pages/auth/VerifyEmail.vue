@@ -3,7 +3,7 @@ import EmailVerificationNotificationController from '@/actions/App/Http/Controll
 import TextLink from '@/components/TextLink.vue';
 import { Button } from '@/components/ui/button';
 import AuthLayout from '@/layouts/AuthLayout.vue';
-import { logout } from '@/routes';
+// import { logout } from '@/routes';
 import { Form, Head } from '@inertiajs/vue3';
 import { LoaderCircle } from 'lucide-vue-next';
 
@@ -26,7 +26,7 @@ defineProps<{
                 Resend verification email
             </Button>
 
-            <TextLink :href="logout()" as="button" class="mx-auto block text-sm"> Log out </TextLink>
+            <TextLink href="/logout" as="button" class="mx-auto block text-sm"> Log out </TextLink>
         </Form>
     </AuthLayout>
 </template>
